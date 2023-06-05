@@ -1,4 +1,4 @@
-/*! choices.js v10.2.0 | © 2022 Josh Johnson | https://github.com/jshjohnson/Choices#readme */
+/*! choices.js v10.2.0 | © 2023 Josh Johnson | https://github.com/jshjohnson/Choices#readme */
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
 		module.exports = factory();
@@ -8,13 +8,13 @@
 		exports["Choices"] = factory();
 	else
 		root["Choices"] = factory();
-})(window, function() {
-return /******/ (function() { // webpackBootstrap
+})(window, () => {
+return /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
 /***/ 282:
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 
@@ -74,7 +74,7 @@ exports.clearChoices = clearChoices;
 /***/ }),
 
 /***/ 783:
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 
@@ -101,7 +101,7 @@ exports.addGroup = addGroup;
 /***/ }),
 
 /***/ 464:
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 
@@ -152,7 +152,7 @@ exports.highlightItem = highlightItem;
 /***/ }),
 
 /***/ 137:
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 
@@ -247,6 +247,9 @@ var Choices = /** @class */function () {
         return __spreadArray([], sourceArray, true);
       }
     });
+    if (userConfig.shadowRoot) {
+      this.config.shadowRoot = userConfig.shadowRoot;
+    }
     var invalidConfigOptions = (0, utils_1.diff)(this.config, defaults_1.DEFAULT_CONFIG);
     if (invalidConfigOptions.length) {
       console.warn('Unknown config option(s) passed', invalidConfigOptions.join(', '));
@@ -1198,7 +1201,7 @@ var Choices = /** @class */function () {
     return results.length;
   };
   Choices.prototype._addEventListeners = function () {
-    var documentElement = document.documentElement;
+    var documentElement = this.config.shadowRoot || document.documentElement;
     // capture events - can cancel event processing or propagation
     documentElement.addEventListener('touchend', this._onTouchEnd, true);
     this.containerOuter.element.addEventListener('keydown', this._onKeyDown, true);
@@ -1238,7 +1241,7 @@ var Choices = /** @class */function () {
     this.input.addEventListeners();
   };
   Choices.prototype._removeEventListeners = function () {
-    var documentElement = document.documentElement;
+    var documentElement = this.config.shadowRoot || document.documentElement;
     documentElement.removeEventListener('touchend', this._onTouchEnd, true);
     this.containerOuter.element.removeEventListener('keydown', this._onKeyDown, true);
     this.containerOuter.element.removeEventListener('mousedown', this._onMouseDown, true);
@@ -2074,7 +2077,7 @@ exports["default"] = Choices;
 /***/ }),
 
 /***/ 613:
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 
@@ -2214,7 +2217,7 @@ exports["default"] = Container;
 /***/ }),
 
 /***/ 217:
-/***/ (function(__unused_webpack_module, exports) {
+/***/ ((__unused_webpack_module, exports) => {
 
 
 
@@ -2298,7 +2301,7 @@ exports.WrappedSelect = wrapped_select_1.default;
 /***/ }),
 
 /***/ 11:
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 
@@ -2438,7 +2441,7 @@ exports["default"] = Input;
 /***/ }),
 
 /***/ 624:
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 
@@ -2524,7 +2527,7 @@ exports["default"] = List;
 /***/ }),
 
 /***/ 730:
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 
@@ -2779,7 +2782,7 @@ exports["default"] = WrappedSelect;
 /***/ }),
 
 /***/ 883:
-/***/ (function(__unused_webpack_module, exports) {
+/***/ ((__unused_webpack_module, exports) => {
 
 
 
@@ -2831,7 +2834,7 @@ exports.SCROLLING_SPEED = 4;
 /***/ }),
 
 /***/ 789:
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 
@@ -2892,6 +2895,7 @@ exports.DEFAULT_CONFIG = {
   resetScrollPosition: true,
   shouldSort: true,
   shouldSortItems: false,
+  shadowRoot: null,
   sorter: utils_1.sortByAlpha,
   placeholder: true,
   placeholderValue: null,
@@ -2926,7 +2930,7 @@ exports.DEFAULT_CONFIG = {
 /***/ }),
 
 /***/ 18:
-/***/ (function(__unused_webpack_module, exports) {
+/***/ ((__unused_webpack_module, exports) => {
 
 
 
@@ -2937,7 +2941,7 @@ Object.defineProperty(exports, "__esModule", ({
 /***/ }),
 
 /***/ 978:
-/***/ (function(__unused_webpack_module, exports) {
+/***/ ((__unused_webpack_module, exports) => {
 
 
 
@@ -2949,7 +2953,7 @@ Object.defineProperty(exports, "__esModule", ({
 /***/ }),
 
 /***/ 948:
-/***/ (function(__unused_webpack_module, exports) {
+/***/ ((__unused_webpack_module, exports) => {
 
 
 
@@ -2960,7 +2964,7 @@ Object.defineProperty(exports, "__esModule", ({
 /***/ }),
 
 /***/ 359:
-/***/ (function(__unused_webpack_module, exports) {
+/***/ ((__unused_webpack_module, exports) => {
 
 
 
@@ -2971,7 +2975,7 @@ Object.defineProperty(exports, "__esModule", ({
 /***/ }),
 
 /***/ 285:
-/***/ (function(__unused_webpack_module, exports) {
+/***/ ((__unused_webpack_module, exports) => {
 
 
 
@@ -2982,7 +2986,7 @@ Object.defineProperty(exports, "__esModule", ({
 /***/ }),
 
 /***/ 533:
-/***/ (function(__unused_webpack_module, exports) {
+/***/ ((__unused_webpack_module, exports) => {
 
 
 
@@ -3039,7 +3043,7 @@ __exportStar(__webpack_require__(876), exports);
 /***/ }),
 
 /***/ 287:
-/***/ (function(__unused_webpack_module, exports) {
+/***/ ((__unused_webpack_module, exports) => {
 
 
 
@@ -3050,7 +3054,7 @@ Object.defineProperty(exports, "__esModule", ({
 /***/ }),
 
 /***/ 132:
-/***/ (function(__unused_webpack_module, exports) {
+/***/ ((__unused_webpack_module, exports) => {
 
 
 
@@ -3061,7 +3065,7 @@ Object.defineProperty(exports, "__esModule", ({
 /***/ }),
 
 /***/ 837:
-/***/ (function(__unused_webpack_module, exports) {
+/***/ ((__unused_webpack_module, exports) => {
 
 
 
@@ -3072,7 +3076,7 @@ Object.defineProperty(exports, "__esModule", ({
 /***/ }),
 
 /***/ 598:
-/***/ (function(__unused_webpack_module, exports) {
+/***/ ((__unused_webpack_module, exports) => {
 
 
 
@@ -3083,7 +3087,7 @@ Object.defineProperty(exports, "__esModule", ({
 /***/ }),
 
 /***/ 37:
-/***/ (function(__unused_webpack_module, exports) {
+/***/ ((__unused_webpack_module, exports) => {
 
 
 
@@ -3094,7 +3098,7 @@ Object.defineProperty(exports, "__esModule", ({
 /***/ }),
 
 /***/ 369:
-/***/ (function(__unused_webpack_module, exports) {
+/***/ ((__unused_webpack_module, exports) => {
 
 
 
@@ -3105,7 +3109,7 @@ Object.defineProperty(exports, "__esModule", ({
 /***/ }),
 
 /***/ 47:
-/***/ (function(__unused_webpack_module, exports) {
+/***/ ((__unused_webpack_module, exports) => {
 
 
 
@@ -3116,7 +3120,7 @@ Object.defineProperty(exports, "__esModule", ({
 /***/ }),
 
 /***/ 923:
-/***/ (function(__unused_webpack_module, exports) {
+/***/ ((__unused_webpack_module, exports) => {
 
 
 
@@ -3127,7 +3131,7 @@ Object.defineProperty(exports, "__esModule", ({
 /***/ }),
 
 /***/ 876:
-/***/ (function(__unused_webpack_module, exports) {
+/***/ ((__unused_webpack_module, exports) => {
 
 
 
@@ -3138,7 +3142,7 @@ Object.defineProperty(exports, "__esModule", ({
 /***/ }),
 
 /***/ 799:
-/***/ (function(__unused_webpack_module, exports) {
+/***/ ((__unused_webpack_module, exports) => {
 
 
 
@@ -3621,7 +3625,7 @@ exports["default"] = items;
 /***/ }),
 
 /***/ 502:
-/***/ (function(__unused_webpack_module, exports) {
+/***/ ((__unused_webpack_module, exports) => {
 
 
 
@@ -3853,7 +3857,7 @@ exports["default"] = Store;
 /***/ }),
 
 /***/ 686:
-/***/ (function(__unused_webpack_module, exports) {
+/***/ ((__unused_webpack_module, exports) => {
 
 
 
@@ -4112,7 +4116,7 @@ exports["default"] = templates;
 /***/ }),
 
 /***/ 996:
-/***/ (function(module) {
+/***/ ((module) => {
 
 
 
@@ -4168,7 +4172,7 @@ function getMergeFunction(key, options) {
 function getEnumerableOwnPropertySymbols(target) {
 	return Object.getOwnPropertySymbols
 		? Object.getOwnPropertySymbols(target).filter(function(symbol) {
-			return target.propertyIsEnumerable(symbol)
+			return Object.propertyIsEnumerable.call(target, symbol)
 		})
 		: []
 }
@@ -4252,11 +4256,11 @@ module.exports = deepmerge_1;
 /***/ }),
 
 /***/ 221:
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": function() { return /* binding */ Fuse; }
+/* harmony export */   "default": () => (/* binding */ Fuse)
 /* harmony export */ });
 /**
  * Fuse.js v6.6.2 - Lightweight fuzzy-search (http://fusejs.io)
@@ -6041,20 +6045,20 @@ Fuse.config = Config;
 /***/ }),
 
 /***/ 791:
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
-  "__DO_NOT_USE__ActionTypes": function() { return /* binding */ ActionTypes; },
-  "applyMiddleware": function() { return /* binding */ applyMiddleware; },
-  "bindActionCreators": function() { return /* binding */ bindActionCreators; },
-  "combineReducers": function() { return /* binding */ combineReducers; },
-  "compose": function() { return /* binding */ compose; },
-  "createStore": function() { return /* binding */ createStore; },
-  "legacy_createStore": function() { return /* binding */ legacy_createStore; }
+  __DO_NOT_USE__ActionTypes: () => (/* binding */ ActionTypes),
+  applyMiddleware: () => (/* binding */ applyMiddleware),
+  bindActionCreators: () => (/* binding */ bindActionCreators),
+  combineReducers: () => (/* binding */ combineReducers),
+  compose: () => (/* binding */ compose),
+  createStore: () => (/* binding */ createStore),
+  legacy_createStore: () => (/* binding */ legacy_createStore)
 });
 
 ;// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/typeof.js
@@ -6816,15 +6820,6 @@ function applyMiddleware() {
   };
 }
 
-/*
- * This is a dummy function to check if the function name has been altered by minification.
- * If the function has been minified and NODE_ENV !== 'production', warn the user.
- */
-
-function isCrushed() {}
-
-if (false) {}
-
 
 
 
@@ -6858,49 +6853,52 @@ if (false) {}
 /******/ 	
 /************************************************************************/
 /******/ 	/* webpack/runtime/compat get default export */
-/******/ 	!function() {
+/******/ 	(() => {
 /******/ 		// getDefaultExport function for compatibility with non-harmony modules
-/******/ 		__webpack_require__.n = function(module) {
+/******/ 		__webpack_require__.n = (module) => {
 /******/ 			var getter = module && module.__esModule ?
-/******/ 				function() { return module['default']; } :
-/******/ 				function() { return module; };
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
 /******/ 			__webpack_require__.d(getter, { a: getter });
 /******/ 			return getter;
 /******/ 		};
-/******/ 	}();
+/******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/define property getters */
-/******/ 	!function() {
+/******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
-/******/ 		__webpack_require__.d = function(exports, definition) {
+/******/ 		__webpack_require__.d = (exports, definition) => {
 /******/ 			for(var key in definition) {
 /******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
 /******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
 /******/ 				}
 /******/ 			}
 /******/ 		};
-/******/ 	}();
+/******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
-/******/ 	!function() {
-/******/ 		__webpack_require__.o = function(obj, prop) { return Object.prototype.hasOwnProperty.call(obj, prop); }
-/******/ 	}();
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/make namespace object */
-/******/ 	!function() {
+/******/ 	(() => {
 /******/ 		// define __esModule on exports
-/******/ 		__webpack_require__.r = function(exports) {
+/******/ 		__webpack_require__.r = (exports) => {
 /******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
 /******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
 /******/ 			}
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
-/******/ 	}();
+/******/ 	})();
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
-!function() {
+(() => {
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
 /* harmony import */ var _scripts_choices__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(373);
 /* harmony import */ var _scripts_choices__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_scripts_choices__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _scripts_interfaces__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(187);
@@ -6915,9 +6913,10 @@ var __webpack_exports__ = {};
 
 
 
-/* harmony default export */ __webpack_exports__["default"] = ((_scripts_choices__WEBPACK_IMPORTED_MODULE_0___default()));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((_scripts_choices__WEBPACK_IMPORTED_MODULE_0___default()));
 
-}();
+})();
+
 __webpack_exports__ = __webpack_exports__["default"];
 /******/ 	return __webpack_exports__;
 /******/ })()

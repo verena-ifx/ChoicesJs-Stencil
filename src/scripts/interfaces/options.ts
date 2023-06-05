@@ -283,6 +283,15 @@ export interface Options {
   shouldSortItems: boolean;
 
   /**
+ * Whether items should be sorted. If false, items will appear in the order they were selected.
+ *
+ * **Input types affected:** text, select-multiple
+ *
+ * @default null
+ */
+  shadowRoot: any;
+
+  /**
    * The function that will sort choices and items before they are displayed (unless a user is searching). By default choices and items are sorted by alphabetical order.
    *
    * **Input types affected:** select-one, select-multiple

@@ -165,6 +165,10 @@ class Choices implements Choices {
       { arrayMerge: (_, sourceArray) => [...sourceArray] },
     );
 
+     if (userConfig.shadowRoot) {
+      this.config.shadowRoot = userConfig.shadowRoot;
+    }
+
     const invalidConfigOptions = diff(this.config, DEFAULT_CONFIG);
     if (invalidConfigOptions.length) {
       console.warn(
@@ -1346,7 +1350,7 @@ class Choices implements Choices {
   }
 
   _addEventListeners(): void {
-    const { documentElement } = document;
+     const documentElement = this.config.shadowRoot || document.documentElement;
 
     // capture events - can cancel event processing or propagation
     documentElement.addEventListener('touchend', this._onTouchEnd, true);
@@ -1400,7 +1404,7 @@ class Choices implements Choices {
   }
 
   _removeEventListeners(): void {
-    const { documentElement } = document;
+     const documentElement = this.config.shadowRoot || document.documentElement;
 
     documentElement.removeEventListener('touchend', this._onTouchEnd, true);
     this.containerOuter.element.removeEventListener(

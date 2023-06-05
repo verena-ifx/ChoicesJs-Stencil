@@ -55,6 +55,7 @@ export const DEFAULT_CONFIG: Options = {
   resetScrollPosition: true,
   shouldSort: true,
   shouldSortItems: false,
+  shadowRoot: null,
   sorter: sortByAlpha,
   placeholder: true,
   placeholderValue: null,
